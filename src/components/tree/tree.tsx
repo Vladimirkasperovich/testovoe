@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 import { useGetTreeMutation } from '../../app/services/tree.api.ts';
 
 export const Tree = () => {
-  const [value, { data }] = useGetTreeMutation();
+  const [getTree, { data }] = useGetTreeMutation();
   useEffect(() => {
-    value({ treeName: 'GUID' });
+    getTree({ treeName: 'GUIDS' });
   }, []);
   return <div className={styles.main}>{data?.name}</div>;
 };
