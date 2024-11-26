@@ -5,11 +5,11 @@ export const treeApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getTree: builder.mutation<Tree, GetTreeRequest>({
       query: (body) => ({
-        body,
         method: 'Post',
         url: `/api.user.tree.get?treeName=${body.treeName}`,
       }),
     }),
   }),
 });
+
 export const { useGetTreeMutation } = treeApi;
