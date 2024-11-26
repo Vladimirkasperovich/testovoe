@@ -5,7 +5,7 @@ export const Layout = () => {
   return (
     <div className={styles.main}>
       <Header />
-      <div>
+      <div className={styles.content}>
         <Sidebar />
       </div>
     </div>

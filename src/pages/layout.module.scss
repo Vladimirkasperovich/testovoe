@@ -1,3 +1,6 @@
 .main {
   border: 3px solid red;
+  .content {
+    display: flex;
+  }
 }
