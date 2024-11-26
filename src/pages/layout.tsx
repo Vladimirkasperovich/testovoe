@@ -1,10 +1,12 @@
-import { Header } from '../components';
+import { Header, Sidebar } from '../components';
+import styles from './layout.module.scss';
 
 export const Layout = () => {
   return (
-    <div>
+    <div className={styles.main}>
+      <Header />
       <div>
-        <Header />
+        <Sidebar />
       </div>
     </div>
   );
