@@ -19,7 +19,7 @@ export const Node: FC<Props> = ({
 }) => {
   return (
     <div style={{ marginLeft: '30px' }}>
-      <div style={{ display: 'flex', columnGap: '10px' }}>
+      <div style={{ display: 'flex', columnGap: '10px', alignItems: 'center' }}>
         {currentNode.children?.length ? (
           isVisibleChild ? (
             <ExpandLessTwoToneIcon
@@ -33,7 +33,7 @@ export const Node: FC<Props> = ({
             />
           )
         ) : null}
-        <h3>{currentNode.name}</h3>
+        <h4>{currentNode.name}</h4>
         {isVisibleChild && (
           <>
             <AddCircleOutlineTwoToneIcon
