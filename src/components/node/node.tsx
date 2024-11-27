@@ -1,5 +1,10 @@
 import styles from './node.module.scss';
+import { TreeNode } from '../../types/tree.types.ts';
+import { FC } from 'react';
 
-export const Node = () => {
-  return <div className={styles.main}>Тут будет Node</div>;
+interface Props {
+  node: TreeNode;
+}
+export const Node: FC<Props> = ({ node }) => {
+  return <div className={styles.main}>{node.name}</div>;
 };

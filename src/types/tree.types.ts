@@ -1,10 +1,9 @@
-export interface Tree {
+export interface TreeNode {
   id: number;
   name: string;
-  children: Children[];
+  children: TreeNode[];
 }
 
-type Children = Tree[];
 export type GetTreeRequest = {
   treeName: string;
 };
