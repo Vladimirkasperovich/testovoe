@@ -1,10 +1,56 @@
-import styles from './node.module.scss';
 import { TreeNode } from '../../types/tree.types.ts';
 import { FC } from 'react';
+import ExpandLessTwoToneIcon from '@mui/icons-material/ExpandLessTwoTone';
+import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
+import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone';
+import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
+import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
 
 interface Props {
-  node: TreeNode;
+  currentNode: TreeNode;
+  isVisibleChild: boolean;
+  toggleVisibility: (id: number) => void;
 }
-export const Node: FC<Props> = ({ node }) => {
-  return <div className={styles.main}>{node.name}</div>;
+
+export const Node: FC<Props> = ({
+  currentNode,
+  isVisibleChild,
+  toggleVisibility,
+}) => {
+  return (
+    <div style={{ marginLeft: '30px' }}>
+      <div style={{ display: 'flex', columnGap: '10px' }}>
+        {currentNode.children?.length ? (
+          isVisibleChild ? (
+            <ExpandLessTwoToneIcon
+              fontSize="small"
+              onClick={() => toggleVisibility(currentNode.id)}
+            />
+          ) : (
+            <ExpandMoreTwoToneIcon
+              fontSize="small"
+              onClick={() => toggleVisibility(currentNode.id)}
+            />
+          )
+        ) : null}
+        <h3>{currentNode.name}</h3>
+        {isVisibleChild && (
+          <>
+            <AddCircleOutlineTwoToneIcon
+              fontSize="small"
+              onClick={() => alert('Add node')}
+            />
+            <EditTwoToneIcon
+              fontSize="small"
+              onClick={() => alert('Edit node')}
+            />
+            <DeleteForeverTwoToneIcon
+              fontSize="small"
+              onClick={() => alert('Remove node')}
+            />
+          </>
+        )}
+      </div>
+    </div>
+  );
 };
